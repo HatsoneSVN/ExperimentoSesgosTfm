@@ -1,0 +1,11 @@
+services:
+  app:
+    image: nombre-imagen-spring-boot
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sqlserver
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:sqlserver://sqlserver:1433;databaseName=nombre-base-datos
+      SPRING_DATASOURCE_USERNAME: usuario-bd
+      SPRING_DATASOURCE_PASSWORD: contraseña-bd
