@@ -1,0 +1,49 @@
+<!-- src/main/resources/templates/thymeleaf/index.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header::head"> 
+</head>
+<body>
+   <input type="hidden" id="userId" th:value="${user.id}"/>
+   <div id='preentrenoContainer' class='inactive'>
+   	   <div th:include="fragments/preentreno::question_preentreno_1_casa" id='questionPreentreno1Casa' class='container inactive'></div>   
+	   <div th:include="fragments/preentreno::question_preentreno_2_casa" id='questionPreentreno2Casa' class='container inactive'></div>
+	   <div th:include="fragments/preentreno::question_preentreno_3_casa" id='questionPreentreno3Casa' class='container inactive'></div>
+   </div>
+   <div th:include="fragments/test_caras::test_caras_ok" id='testCarasOkContainer' class='container inactive'></div>
+   <div th:include="fragments/test_caras::test_caras_ko" id='testCarasKoContainer' class='container inactive'></div>
+   <div id='testEquivalencia' class='container inactive'>
+	   <div th:include="fragments/test_equivalencia::testEquivalenciaOk" id='testEquivalenciaOk' class='container inactive'></div>
+	   <div th:include="fragments/test_equivalencia::testEquivalenciaKo" id='testEquivalenciaKo' class='container inactive'></div>
+   </div>
+   <div id='testEquivalencia2' class='container inactive'>
+	   <div th:include="fragments/test_equivalencia_fase_2::testEquivalenciaOkFase2" id='testEquivalenciaOkFase2' class='container inactive'></div>
+	   <div th:include="fragments/test_equivalencia_fase_2::testEquivalenciaKoFase2" id='testEquivalenciaKoFase2' class='container inactive'></div>
+   </div>
+   <div id='grupoC' class='container inactive'>
+	   <div th:include="fragments/grupoC/grupo_c::grupoOk" id='groupContainerOk' class='container inactive'></div>
+	   <div th:include="fragments/grupoC/grupo_c::grupoKo" id='groupContainerKo' class='container inactive'></div>
+   </div>
+   <div id='grupoC2' class='container inactive'>
+   	   <div th:include="fragments/grupoC/grupo_c_2::grupoOk2" id='groupContainerOk2' class='container inactive'></div>
+	   <div th:include="fragments/grupoC/grupo_c_2::grupoKo2" id='groupContainerKo2' class='container inactive'></div>
+   </div>
+   <div id='result'>
+       <img th:src="@{/img/punishment.png}" id='punishment' alt="punishment" class="rounded float-start inactive"></img>
+       <img th:src="@{/img/rewards.png}" id='rewards' alt="rewards" class="rounded float-start inactive"></img>
+   </div>
+   <div id='expFinalizado' class='inactive'>
+   	<p id='textoFinal'>El experiemento ha finalizado con éxito, gracias por participar!!</p>
+   </div>
+   <div id='explicacionInicial' class='active'>
+   	<p>Bienvenido, a continuación verá una serie de imágenes (objetos y caras, entre otras). Por favor, seleccione las imágenes que considere correctas. Puede abandonar el experimento en cualquier momento. Gracias</p>
+   	 <button id="botonAcceso">Siguiente</button>
+   </div>
+   <audio id="correctAudio" th:src="@{/sounds/correct.mp3}"></audio>
+   <audio id="incorrectAudio" th:src="@{/sounds/incorrect.mp3}"></audio>
+<div th:fragment="scripts">
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js}"></script>
+    <script th:src="@{js/grupoC.js}" defer></script>
+</div>
+</body>
+</html>

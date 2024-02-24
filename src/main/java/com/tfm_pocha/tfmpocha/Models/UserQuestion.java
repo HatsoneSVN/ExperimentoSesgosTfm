@@ -24,12 +24,34 @@ public class UserQuestion {
     @JoinColumn(name = "question_id")
     private Question question;
 
-    private boolean responseStatus;
+	private boolean responseStatus;
 
     @Column(name = "statement", columnDefinition = "VARCHAR(MAX)")
     private String statement;
+    
+    @Column(name = "mano_ok", columnDefinition = "BIT")
+    private boolean mano_ok;
+    
+    @Column(name = "estimulo", columnDefinition = "BIT")
+    private boolean estimuloAbs;
 
-    public Long getId() {
+    public boolean isMano_ok() {
+		return mano_ok;
+	}
+
+	public void setMano_ok(boolean mano_ok) {
+		this.mano_ok = mano_ok;
+	}
+	
+    public boolean isEstimuloAbs() {
+		return estimuloAbs;
+	}
+
+	public void setEstimuloAbs(boolean estimuloAbs) {
+		this.estimuloAbs = estimuloAbs;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -61,15 +83,21 @@ public class UserQuestion {
         this.responseStatus = responseStatus;
     }
 
-    public UserQuestion(Long id, User user, Question question, boolean responseStatus, String statement) {
-        this.id = id;
-        this.user = user;
-        this.question = question;
-        this.responseStatus = responseStatus;
-        this.statement = statement;
-    }
+    
 
-    public UserQuestion() {
+    public UserQuestion(Long id, User user, Question question, boolean responseStatus, String statement,
+			boolean mano_ok, boolean estimuloAbs) {
+		super();
+		this.id = id;
+		this.user = user;
+		this.question = question;
+		this.responseStatus = responseStatus;
+		this.statement = statement;
+		this.mano_ok = mano_ok;
+		this.estimuloAbs = estimuloAbs;
+	}
+
+	public UserQuestion() {
 
     }
 

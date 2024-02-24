@@ -33,6 +33,7 @@ public class HomeController {
 
     @GetMapping("/home")
     public String home(Model model) {
+    	String viewRedirect = "";
         User newUser = new User();
         String nuevoNombre = "User_" + (userRepository.count() + 1);
         newUser.setName(nuevoNombre);
@@ -41,15 +42,38 @@ public class HomeController {
             Group grupoAleatorio = grupos.get(new Random().nextInt(grupos.size()));
             newUser.setGroup(grupoAleatorio);
         }
+        
+        /*Group gForced = new Group();
+        for(Group g :grupos) {
+        	if (g.getName() == "GRUPO_R") {
+        		gForced = g;
+        	}
+          }*/
         userService.saveUser(newUser);
         Group group = newUser.getGroup();
-        List<Question> gropuQuestions = questionService.getQuestionsByGroup(group);
+        String nameGroup = group.getName().toUpperCase();
         List<Question> preQuestions = questionService.getQuestionsPreentreno();
         List<Question> testCarasQuestions = questionService.getQuestionsTestCaras();
+        List<Question> testEquivalenciaQuestions = questionService.getQuestionsByGroupType("TEST_EQUIVALENCIA");
+        List<Question> groupQuestions = questionService.getQuestionsByGroupType(nameGroup);
+        switch (nameGroup) {
+	        case "GRUPO_C":
+	        	viewRedirect = "grupoCmain.html";
+	            break;
+	        case "GRUPO_M":
+	        	viewRedirect = "grupoMain.html";
+	            break;
+	        case "GRUPO_R":
+	        	viewRedirect = "grupoRmain.html";
+	            break;
+	        default:
+	            System.out.println("Opción no válida");
+	    }        
         model.addAttribute("user", newUser);
-        model.addAttribute("gropuQuestions", gropuQuestions);
         model.addAttribute("preQuestions", preQuestions);
         model.addAttribute("testCarasQuestions", testCarasQuestions);
-        return "index.html";
+        model.addAttribute("groupQuestions", groupQuestions);
+        model.addAttribute("testEquivalenciaQuestions", testEquivalenciaQuestions);
+        return viewRedirect;
     }
 }

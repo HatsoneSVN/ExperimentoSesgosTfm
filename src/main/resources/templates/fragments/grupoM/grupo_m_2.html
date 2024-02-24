@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <div th:fragment='grupoOk2'>	
+    <div th:each="question : ${groupQuestions}" th:id="${question.name}" class="inactive">
+    	<th:block th:if="${question.name != 'question_grupo_step_1'}">
+	        <div class="center-image">  
+	            <img src="" alt="Foto test" class="img-fluid main headerImgOk" th:attr="data-idquestion=${question.getId()}"></img>          
+	        </div>
+	        <div class="row img_container">
+		        <div class="col-12">
+			        <div class="row">
+			            <th:block th:each="img : ${#strings.arraySplit(question.images, '-')}">
+			                <th:block th:if="${img == 'img/test_caras/mujer_asiatica.png' or img == 'img/test_caras/mujer_asiatica_gorda.png' or img == 'img/test_caras/mujer_blanca.png' or img == 'img/test_caras/mujer_negra.png'}">
+			                    <div class="col-6">
+			                        <img th:src="${img}" alt="Foto test" class="img-fluid" data-option='succes' data-tipoMano='OK' th:attr="data-idquestion=${question.getId()}"></img>
+			                    </div>                    
+			                </th:block>
+			                <th:block th:unless="${img == 'img/test_caras/mujer_asiatica.png' or img == 'img/test_caras/mujer_asiatica_gorda.png' or img == 'img/test_caras/mujer_blanca.png' or img == 'img/test_caras/mujer_negra.png'}">
+			                    <div class="col-6">
+			                        <img th:src="${img}" alt="Foto test" class="img-fluid" data-option='fail' data-tipoMano='OK' th:attr="data-idquestion=${question.getId()}"></img>
+			                    </div>
+			                </th:block>         
+			            </th:block>           
+        			</div>
+       			 </div>
+ 				</div>
+	     </th:block>
+	  </div>
+  </div>
+<div th:fragment='grupoKo2'>
+    <div th:each="question : ${groupQuestions}" th:id="${question.name} + -KO" class="inactive">	  
+    	<th:block th:if="${question.name != 'question_grupo_step_1'}">      
+	        <div class="center-image">
+	            <img src="" alt="Foto test" class="img-fluid main headerImgkO"  th:attr="data-idquestion=${question.getId()}"></img>
+	        </div>
+	        <div class="row img_container">
+		         <div class="col-12">
+					<div class="row">
+			            <th:block th:each="img : ${#strings.arraySplit(question.images, '-')}">               
+			                <th:block th:if="${img == 'img/test_caras/mujer_asiatica.png' or img == 'img/test_caras/mujer_asiatica_gorda.png' or img == 'img/test_caras/mujer_blanca.png' or img == 'img/test_caras/mujer_negra.png'}">
+			                    <div class="col-6">    
+			                        <img th:src="${img}" alt="Foto test" class="img-fluid" data-option='fail' data-tipoMano='KO' th:attr="data-idquestion=${question.getId()}"></img>
+			                    </div> 
+			                </th:block>
+			                <th:block th:unless="${img == 'img/test_caras/mujer_asiatica.png' or img == 'img/test_caras/mujer_asiatica_gorda.png' or img == 'img/test_caras/mujer_blanca.png' or img == 'img/test_caras/mujer_negra.png'}">
+			                    <div class="col-6">
+			                        <img th:src="${img}" alt="Foto test" class="img-fluid" data-option='succes' data-tipoMano='KO' th:attr="data-idquestion=${question.getId()}"></img>
+			                    </div>
+			                </th:block>
+			            </th:block>
+		        	</div>
+	        	</div>
+	        </div>
+        </th:block>
+    </div>
+ </div>
+

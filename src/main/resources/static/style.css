@@ -8,21 +8,18 @@
     display: none;
 }
 #rewards{
-    display: none;
     max-width: 100%;
     max-height: 100%;
     height: 90vh !important;
     width: 99vw;
 }
 #punishment{
-    display: none;
     max-width: 100%;
     max-height: 100%;
     height: 90vh !important;
     width: 99vw;
 }
 #result{
-    display: none;
     align-items: center;
     justify-content: center;
     height: 90vh;
@@ -31,7 +28,7 @@ img{
     transition: transform 0.3s, box-shadow 0.3s;
     border-radius: 10px;
     border: solid;
-    width:  19vw;
+    width:  25vw;
     height: 30vh  !important;
     margin: 10px;
 }
@@ -61,10 +58,99 @@ body {
     border-radius: 10px;
     padding: 1vw;
     margin-bottom: 5vh;
+    font-size: 4vh;
 }
 .statementKo{
     border:solid;
     border-radius: 10px;
     padding: 1vw;
     margin-bottom: 5vh;
+    font-size: 4vh;
+}
+
+@media (max-width: 768px) {
+    img {
+        width: 25vw !important;
+        height: 20vh !important;
+        margin: 0 !important;
+    }
+    .main {
+	    height: 30vh !important;
+	    width: 45vw !important;
+	}
+	#explicacionInicial p{
+		font-size: 3vh !important;
+		padding:5px;
+	}
+	#explicacionInicial{
+	    width: 85vw;
+	}
+	#botonAcceso{
+		width: 30vw !important;
+		padding: 3px !important;
+	}
+	.statementOk{
+	    border: solid;
+	    border-radius: 10px;
+	    margin-bottom: 3vh;
+	}
+	.statementOk p{
+		font-size: 1.5rem;
+	}
+	.statementKo{
+	    border: solid;
+	    border-radius: 10px;
+	    margin-bottom: 3vh;
+	}
+	.statementKo p{
+		font-size: 1.5rem;
+	}
+	#expFinalizado{
+		width: 60vw;
+	}
+	#punishment img{
+		width: 100% !important;
+	}
+	#rewards img{
+		width: 100% !important;
+	}
+	#punishment{
+		width: 100% !important;
+	}
+	#rewards{
+		width: 100% !important;
+	}
+}
+#expFinalizado {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: solid;
+}
+
+#textoFinal {
+    display: inline-block;
+}
+#explicacionInicial {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: solid;
+}
+
+#botonAcceso {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    width: 8vw;
 }

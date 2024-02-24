@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment='grupoOk'>		   		    
+      <div class="center-image">  
+          <img th:src="@{/img/test_caras/mano_ok.png}" alt="Foto test" class="img-fluid main" th:attr="data-idquestion=10030"></img>          
+      </div>
+      <div class="row img_container"> 
+       <div class="col-12">
+		<div class="row">
+           <div class="col-7">
+               <img src="/img/grupos/estimulo_abstracto_b1.png" alt="Foto test" class="img-fluid" data-option='succes' data-tipoMano='OK' th:attr="data-idquestion=10030"></img>     
+              </div> 
+              <div class="col-5">    
+               <img src="/img/grupos/estimulo_abstracto_b2.png" alt="Foto test" class="img-fluid" data-option='fail' data-tipoMano='OK' th:attr="data-idquestion=10030"></img>
+           </div>  
+          </div>		    
+	</div>          
+   	</div>		    
+</div>
+<div th:fragment='grupoKo'>		    
+     <div class="center-image">
+         <img th:src="@{/img/test_caras/mano_ko.png}" alt="Foto test" class="img-fluid main" th:attr="data-idquestion=10030"></img>
+     </div>
+     <div class="row img_container">   
+     	<div class="col-12">
+	<div class="row">
+          <div class="col-7">    
+              <img src="/img/grupos/estimulo_abstracto_b1.png" alt="Foto test" class="img-fluid" data-option='fail' data-tipoMano='KO' th:attr="data-idquestion=10030"></img> 
+          </div>      
+          <div class="col-5">   
+              <img src="/img/grupos/estimulo_abstracto_b2.png" alt="Foto test" class="img-fluid" data-option='succes' data-tipoMano='KO' th:attr="data-idquestion=10030"></img>
+          </div>   
+     	</div>		    
+	</div>
+     </div>		    
+</div>

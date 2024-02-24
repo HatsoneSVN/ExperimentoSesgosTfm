@@ -30,6 +30,7 @@ public class Group {
     @ManyToMany
     @JoinTable(name = "group_question", joinColumns = @JoinColumn(name = "group_id"), inverseJoinColumns = @JoinColumn(name = "question_id"))
     private Set<Question> questions = new HashSet<>();
+    
 
     public Long getGroupId() {
         return groupId;

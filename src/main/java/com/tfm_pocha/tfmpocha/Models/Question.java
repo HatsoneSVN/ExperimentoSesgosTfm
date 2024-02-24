@@ -1,6 +1,8 @@
 package com.tfm_pocha.tfmpocha.Models;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
@@ -24,6 +26,10 @@ public class Question {
     private String name;
     @Column(name = "type", columnDefinition = "VARCHAR(50)")
     private String typeQuestion;
+    
+    @ManyToMany
+    @JoinTable(name = "question_imagen",joinColumns = @JoinColumn(name = "question_id"),inverseJoinColumns = @JoinColumn(name = "imagen_id"))
+    private Set<Imagen> imagenes = new HashSet<>();
 
     public String getTypeQuestion() {
         return typeQuestion;
